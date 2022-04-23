@@ -1,0 +1,35 @@
+{
+  "name": "sqs-receiver",
+  "description": "",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "prepublish": "npm run build",
+    "lint": "eslint src/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomazfeitoza/sqs-receiver.git"
+  },
+  "keywords": [
+    "aws",
+    "sqs",
+    "worker",
+    "consumer",
+    "fast",
+    "receiver",
+    "message",
+    "event-driven"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.1120.0",
+    "bluebird": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.36",
+    "@types/node": "^17.0.25",
+    "typescript": "^4.6.3"
+  }
+}
