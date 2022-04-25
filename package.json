@@ -1,11 +1,11 @@
 {
   "name": "sqs-receiver",
-  "description": "",
+  "description": "Fast and easy worker for processing large amounts of SQS messages with a high level of concurrency.",
   "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "lint": "eslint src/**/*.ts"
   },
   "repository": {
