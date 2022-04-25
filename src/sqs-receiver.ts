@@ -51,6 +51,14 @@ export type SQSReceiverOptions = {
   sqs?: SQS.ClientConfiguration
 }
 
+const defaultOptions: SQSReceiverOptions = {
+  queueUrl: '',
+  maxConcurrency: 10,
+  messageHandler: () => null,
+  waitSeconds: 20,
+  includeAttributes: false,
+  autoDelete: true,
+};
 
 export class SQSReceiver extends EventEmitter {
 
@@ -62,17 +70,7 @@ export class SQSReceiver extends EventEmitter {
 
   constructor(options: SQSReceiverOptions) {
     super();
-
-    const defaultOptions: SQSReceiverOptions = {
-      queueUrl: '',
-      maxConcurrency: 10,
-      messageHandler: () => null,
-      waitSeconds: 20,
-      includeAttributes: false,
-      autoDelete: true,
-    };
-
-    this.options = Object.assign(defaultOptions, options);
+    this.options = Object.assign({}, defaultOptions, options);
     this.running = false;
     this.backoffTimeout = new BackoffTimeout();
     this.taskManager = new TaskManager();
